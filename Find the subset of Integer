@@ -1,0 +1,35 @@
+import java.util.*;
+public class subsetofInteger {
+    public static void PrintArraylist(ArrayList<Integer> subset) {
+        for(int i=0;i<subset.size();i++)
+        {
+            int n = subset.get(i);
+            System.out.print(n + "");
+        }
+        System.out.println("");
+        
+    }
+    public static void FindSubset(int n,ArrayList<Integer>subset)
+    {
+        if(n==0)
+        {
+            PrintArraylist(subset);
+            return ;
+        }
+        subset.add(n);
+        FindSubset(n-1,subset);
+        subset.remove(subset.size()-1);
+         FindSubset(n-1,subset);
+        
+        
+        
+    }
+    
+    
+    
+    public static void main(String[] args) {
+        ArrayList<Integer> subset = new  ArrayList<Integer> ();
+        FindSubset(5,subset);
+    }
+    
+}
